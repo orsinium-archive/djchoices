@@ -8,7 +8,7 @@ For python<=3.4 install [enum34](https://pypi.python.org/pypi/enum34):
 sudo pip install enum34
 ```
 
-Пакет ставим из этого репозитория:
+Install this module:
 
 ```bash
 sudo pip install -e git+https://github.com/orsinium/djchoices.git#egg=djchoices
