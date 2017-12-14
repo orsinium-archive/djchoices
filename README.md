@@ -16,7 +16,7 @@ sudo pip install -e git+https://github.com/orsinium/djchoices.git#egg=djchoices
 
 ## Example
 
-```python
+```ipython
 In [1]: from djchoices import Choices
 
 In [2]: class SOURCES(Choices):
