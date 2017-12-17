@@ -16,23 +16,52 @@ sudo pip install -e git+https://github.com/orsinium/djchoices.git#egg=djchoices
 
 ## Example
 
-```ipython
-In [1]: from djchoices import Choices
+Definition:
 
-In [2]: class SOURCES(Choices):
-   ...:     IOS = 'i', 'iOS app'
-   ...:     ANDROID = 'a', 'Android app'
+```python
+from djchoices import Choices
 
-In [3]: SOURCES.choices()
-Out[3]: (('a', 'Android app'), ('i', 'iOS app'))
-
-In [4]: SOURCES.IOS.verbose
-Out[4]: 'iOS app'
-
-In [5]: Sources.IOS.db
-Out[5]: 'i'
+class SOURCES(Choices):
+    IOS = 'i', 'iOS app'
+    ANDROID = 'a', 'Android app'
 ```
+
+Usage in models:
 
 ```python
 source = models.CharField(max_length=1, choices=SOURCES.choices())
+```
+
+Manual usage:
+
+```python
+SOURCES.choices()
+# (('a', 'Android app'), ('i', 'iOS app'))
+
+SOURCES.IOS
+# <SOURCES.IOS: ('i', 'iOS app')>
+
+SOURCES.IOS.verbose
+# 'iOS app'
+
+SOURCES.IOS.db
+# 'i'
+
+SOURCES.IOS.name
+# 'IOS'
+
+SOURCES.IOS.value
+# ('i', 'iOS app')
+
+SOURCES.by_db('i')
+# <SOURCES.IOS: ('i', 'iOS app')>
+
+SOURCES.by_verbose('iOS app')
+# <SOURCES.IOS: ('i', 'iOS app')>
+
+SOURCES.verbose_by_db('i')
+# 'iOS app'
+
+SOURCES.db_by_verbose('iOS app')
+# 'i'
 ```
